@@ -11,19 +11,19 @@
 		C3C5A74826F8F1E6004CC325 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5A74726F8F1E6004CC325 /* SceneDelegate.swift */; };
 		C3C5A74A26F8F1E6004CC325 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C5A74926F8F1E6004CC325 /* ViewController.swift */; };
 		C3C5A74D26F8F1E6004CC325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5A74B26F8F1E6004CC325 /* Main.storyboard */; };
-		C3C5A74F26F8F200004CC325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C5A74E26F8F200004CC325 /* Assets.xcassets */; };
 		C3C5A75226F8F200004CC325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5A75026F8F200004CC325 /* LaunchScreen.storyboard */; };
+		C3C5A75A26FB97CC004CC325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C5A75926FB97CC004CC325 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C3C5A74226F8F1E6004CC325 /* ParcsmartWebview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParcsmartWebview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C5A74226F8F1E6004CC325 /* parcsmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parcsmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C5A74526F8F1E6004CC325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C5A74726F8F1E6004CC325 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C3C5A74926F8F1E6004CC325 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3C5A74C26F8F1E6004CC325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C3C5A74E26F8F200004CC325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3C5A75126F8F200004CC325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3C5A75326F8F200004CC325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3C5A75926FB97CC004CC325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../assets/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 		C3C5A74326F8F1E6004CC325 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C3C5A74226F8F1E6004CC325 /* ParcsmartWebview.app */,
+				C3C5A74226F8F1E6004CC325 /* parcsmart.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,11 +56,11 @@
 		C3C5A74426F8F1E6004CC325 /* ParcsmartWebview */ = {
 			isa = PBXGroup;
 			children = (
+				C3C5A75926FB97CC004CC325 /* Assets.xcassets */,
 				C3C5A74526F8F1E6004CC325 /* AppDelegate.swift */,
 				C3C5A74726F8F1E6004CC325 /* SceneDelegate.swift */,
 				C3C5A74926F8F1E6004CC325 /* ViewController.swift */,
 				C3C5A74B26F8F1E6004CC325 /* Main.storyboard */,
-				C3C5A74E26F8F200004CC325 /* Assets.xcassets */,
 				C3C5A75026F8F200004CC325 /* LaunchScreen.storyboard */,
 				C3C5A75326F8F200004CC325 /* Info.plist */,
 			);
@@ -84,7 +84,7 @@
 			);
 			name = ParcsmartWebview;
 			productName = ParcsmartWebview;
-			productReference = C3C5A74226F8F1E6004CC325 /* ParcsmartWebview.app */;
+			productReference = C3C5A74226F8F1E6004CC325 /* parcsmart.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -93,6 +93,9 @@
 		C3C5A73A26F8F1E5004CC325 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
@@ -125,7 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C5A75226F8F200004CC325 /* LaunchScreen.storyboard in Resources */,
-				C3C5A74F26F8F200004CC325 /* Assets.xcassets in Resources */,
+				C3C5A75A26FB97CC004CC325 /* Assets.xcassets in Resources */,
 				C3C5A74D26F8F1E6004CC325 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,13 +290,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = WR8B629U4J;
 				INFOPLIST_FILE = ParcsmartWebview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = parcsmart.ParcsmartWebview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.parcsmart;
+				PRODUCT_NAME = parcsmart;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,13 +311,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = WR8B629U4J;
 				INFOPLIST_FILE = ParcsmartWebview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = parcsmart.ParcsmartWebview;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.parcsmart;
+				PRODUCT_NAME = parcsmart;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
