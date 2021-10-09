@@ -10,31 +10,22 @@ import CoreLocation
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKUIDelegate  {
+class ViewController: UIViewController, WKUIDelegate, CLLocationManagerDelegate  {
     
-    var webView: WKWebView!
+    @IBOutlet weak var webView: WKWebView!
+    
     //var locationManager: CLLocationManager?
     let locationManager = CLLocationManager()
-    
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == CLAuthorizationStatus.denied) {
-            // The user denied authorization
-            print("location denied")
-        } else if (status == CLAuthorizationStatus.authorizedAlways) {
-            // The user accepted authorization
-            print("location accepted")
-        }
-        else {
-            print("location status unknown")
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //locationManager = CLLocationManager()
-        //locationManager?.delegate = self
-        //locationManager?.requestAlwaysAuthorization()
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        
+        
+        
                 
         let myURL = URL(string:"https://parcsmart.com/webview.jsp")
         let myRequest = URLRequest(url: myURL!)
@@ -44,6 +35,8 @@ class ViewController: UIViewController, WKUIDelegate  {
         
         //NEWLY ADDED PERMISSIONS FOR iOS 14
         if #available(iOS 14, *) {
+            
+            self.webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
             
             // request location access
             locationManager.requestAlwaysAuthorization()
@@ -81,18 +74,25 @@ class ViewController: UIViewController, WKUIDelegate  {
             }
         }
         else {
+            self.webView.configuration.preferences.javaScriptEnabled = true
             print("*** no app tracking required, webView loading...")
             webView.load(myRequest)
         }
         
     }
+  
+    //LocationManagerDelegate
     
-   override func loadView() {
-      let webConfiguration = WKWebViewConfiguration()
-      webView = WKWebView(frame: .zero, configuration: webConfiguration)
-      webView.uiDelegate = self
-      view = webView
-   }
-    
-    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if (status == CLAuthorizationStatus.denied) {
+            // The user denied authorization
+            print("location denied")
+        } else if (status == CLAuthorizationStatus.authorizedAlways) {
+            // The user accepted authorization
+            print("location accepted")
+        }
+        else {
+            print("location status unknown")
+        }
+    }    
 }

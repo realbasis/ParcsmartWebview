@@ -29,8 +29,6 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Please allow to get started</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -75,12 +73,16 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please allow to get started</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Please allow to get started</string>
-    <key>NSLocationUsageDescription</key>
-    <string>Please allow to get started</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Please allow to get started</string>
+	<string>$(PRODUCT_NAME) need access to your location to track location of user relative to parking garages.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) need access to your location to track location of user relative to parking garages.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>$(PRODUCT_NAME) need access to your location to track location of user relative to parking garages.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(PRODUCT_NAME) need access to your location to track location of user relative to parking garages.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) need use to phone camera to capture vehicle tags via the device camera.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>$(PRODUCT_NAME) need use to tracking to track user information.</string>
 </dict>
 </plist>
