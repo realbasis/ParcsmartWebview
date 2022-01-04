@@ -29,6 +29,18 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to use your camera to capture vehicles and their plates.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) may need to track your location relative to parking garages.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(PRODUCT_NAME) may need to track your location relative to parking garages.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>$(PRODUCT_NAME) may need to track your location relative to parking garages.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) may need to track your location relative to parking garages.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs your email address for authentication purposes.  ${PRODUCT_NAME} does not share your information with third parties.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -72,17 +84,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>$(PRODUCT_NAME) need access to your location to track location of user relative to parking garages.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>$(PRODUCT_NAME) need access to your location to track location of user relative to parking garages.</string>
-	<key>NSLocationUsageDescription</key>
-	<string>$(PRODUCT_NAME) need access to your location to track location of user relative to parking garages.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>$(PRODUCT_NAME) need access to your location to track location of user relative to parking garages.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) need use to phone camera to capture vehicle tags via the device camera.</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>$(PRODUCT_NAME) need use to tracking to track user information.</string>
 </dict>
 </plist>

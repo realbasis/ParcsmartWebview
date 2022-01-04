@@ -16,83 +16,108 @@ class ViewController: UIViewController, WKUIDelegate, CLLocationManagerDelegate 
     
     //var locationManager: CLLocationManager?
     let locationManager = CLLocationManager()
-    
+    let myURL = URL(string:"https://parcsmart.com/wkwebview.jsp?lang=fr")
+    let myURLno = URL(string:"https://parcsmart.com/webviewno.jsp?lang=fr")
+	let myURLmin = URL(string:"https://parcsmart.com/webviewmin.jsp?lang=fr")
+
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
+         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        //locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
+		//let myRequestno = URLRequest(url: myURLno!)
+		let myRequestmin = URLRequest(url: myURLmin!)
+        //let myRequest = URLRequest(url: myURL!)
+		print("function viewDidAppear loaded.  Status = ",ATTrackingManager.trackingAuthorizationStatus)
         
+        ATTrackingManager.requestTrackingAuthorization { [self] (status) in
         
-        
-                
-        let myURL = URL(string:"https://parcsmart.com/webview.jsp")
-        let myRequest = URLRequest(url: myURL!)
-        
-        let myURLno = URL(string:"https://parcsmart.com/webviewno.jsp")
-        let myRequestno = URLRequest(url: myURLno!)
-        
-        //NEWLY ADDED PERMISSIONS FOR iOS 14
-        if #available(iOS 14, *) {
+            switch status {
             
-            self.webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
-            
-            // request location access
-            locationManager.requestAlwaysAuthorization()
-            //print("location status")
-            //print(locationManager.authorizationStatus)
-            
-                        
-            ATTrackingManager.requestTrackingAuthorization { (status) in
-            
-                switch status {
-                
-                case .notDetermined:
-                    print("notDetermined")
-                    self.webView.load(myRequestno)
-                    break
-                case .restricted:
-                    print("restricted")
-                    self.webView.load(myRequestno)
-                    break
-                case .denied:
-                    print("denied")
-                    self.webView.load(myRequestno)
-                    break
-                case .authorized:
-                    print("*** app tracking authorized")
-                    print("*** webView loading...")
-                    self.webView.load(myRequest)
-                    break
-                @unknown default:
-                    print("unknown")
-                    self.webView.load(myRequestno)
-                    break
-                }
-            
+            case .notDetermined:
+                print("Tracking notDetermined")
+				self.webView.load(myRequestmin)
+                //locationManager.delegate = self
+                //locationManager.requestAlwaysAuthorization()
+                break
+            case .restricted:
+                print("Tracking restricted")
+				self.webView.load(myRequestmin)
+                //locationManager.delegate = self
+                //locationManager.requestAlwaysAuthorization()
+                break
+            case .denied:
+                print("Tracking denied")
+                self.webView.load(myRequestmin)
+                //locationManager.delegate = self
+                //locationManager.requestAlwaysAuthorization()
+                break
+            case .authorized:
+                locationManager.delegate = self
+                locationManager.requestAlwaysAuthorization()
+                print("*** app tracking authorized")
+                print("*** webView loading...")
+				// self.webView.load(myRequest)
+                break
+            @unknown default:
+                print("Tracking state unknown")
+				self.webView.load(myRequestmin)
+                //locationManager.delegate = self
+                //locationManager.requestAlwaysAuthorization()
+                break
             }
+        
+        }
+    }
+  
+    //LocationManagerDelegate    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        
+        let myRequest = URLRequest(url: myURL!)
+        //let myRequestno = URLRequest(url: myURLno!)
+		let myRequestmin = URLRequest(url: myURLmin!)
+		print("*** LocationManager function. Status :",status)
+        
+        if #available(iOS 14, *) {
+            self.webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+			print("*** IOS is 14 minimum")
         }
         else {
             self.webView.configuration.preferences.javaScriptEnabled = true
             print("*** no app tracking required, webView loading...")
-            webView.load(myRequest)
         }
         
-    }
-  
-    //LocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if (status == CLAuthorizationStatus.denied) {
-            // The user denied authorization
-            print("location denied")
-        } else if (status == CLAuthorizationStatus.authorizedAlways) {
-            // The user accepted authorization
-            print("location accepted")
-        }
-        else {
-            print("location status unknown")
+        switch status {
+			case .authorizedWhenInUse:
+				print("*** app tracking authorized")
+				print("*** webView loading...")
+				self.webView.load(myRequest)
+				break
+			case .authorizedAlways:
+				print("*** app tracking authorized")
+				print("*** webView loading...")
+				self.webView.load(myRequest)
+				break
+			case .denied:
+				print("denied")
+				self.webView.load(myRequestmin)
+				break
+			case .notDetermined:
+				print("notDetermined")
+				self.webView.load(myRequestmin)
+				break
+			case .restricted:
+				print("restricted")
+				self.webView.load(myRequestmin)
+				break
+			default:
+				print("location status unknown")
+				self.webView.load(myRequestmin)
+				break
         }
     }    
 }
